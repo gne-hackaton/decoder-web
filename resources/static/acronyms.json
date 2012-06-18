@@ -1,0 +1,49 @@
+{
+  "result": [
+    {
+      "name": "NHL",
+      "data": [
+        {
+          "dict": "Sports Dictionary",
+          "id": "some id",
+          "def": "National Hockey League"
+        },
+        {
+          "dict": "Urban Dictionary",
+          "id": "some other id",
+          "def": "Nice Hairy Lamb"
+        }
+      ]
+    },
+    {
+      "name": "NBA",
+      "data": [
+        {
+          "dict": "Sports Dictionary",
+          "id": "some id",
+          "def": "National Basket League"
+        }
+      ]
+    },
+	{
+      "name": "iPCL",
+      "data": [
+        {
+          "dict": "Pharma Informatics",
+          "id": "some id",
+          "def": "iPhone Common Library"
+        }
+      ]
+    },
+	{
+      "name": "PLC",
+      "data": [
+        {
+          "dict": "Pharma Informatics",
+          "id": "some id",
+          "def": "Project Life Cycle"
+        }
+      ]
+    }
+  ]
+}

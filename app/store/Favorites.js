@@ -1,14 +1,14 @@
-Ext.define('decoder.store.Acronyms',{
+Ext.define('decoder.store.Favorites',{
 	extend: 'Ext.data.Store',
-	xtype: 'acronyms',
+	xtype: 'favorites',
 	requires: [
-		'Ext.data.proxy.JsonP'
+		'Ext.data.proxy.LocalStorage'
 	],
 	config:{
 		autoLoad: true,
+		autoSync: true,
 		model: 'decoder.model.Acronym',
 		sorters: 'acronym',
-		/*
 		grouper: {
     		groupFn: 
 				function(record) {
@@ -17,14 +17,9 @@ Ext.define('decoder.store.Acronyms',{
       				return letter;
       		},
     	},
-        */
 		proxy: {
-			type: 'ajax',
-			url: 'resources/static/A.json',
-			reader: {
-				type: 'json',
-				rootProperty:'result',
-			}
+			type:'localstorage',
+			id:'favorites-store	'
 		}
 	}
 });

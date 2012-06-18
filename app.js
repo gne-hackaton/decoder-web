@@ -1,17 +1,21 @@
 Ext.application({
+    controllers: ["Main"],
+
     name: 'decoder',
 
     requires: [
         'Ext.MessageBox'
     ],
 
-    views: ['Main'],
+    views: ['Main','Home','Detail','Favorites','Recents'],
+    models:['Acronym','Term'],
+	stores: ['Acronyms','Favorites','Recents'],
 
     icon: {
-        '57': 'resources/icons/Icon.png',
-        '72': 'resources/icons/Icon~ipad.png',
-        '114': 'resources/icons/Icon@2x.png',
-        '144': 'resources/icons/Icon~ipad@2x.png'
+        '57': 'resources/icons/app-icon-iphone.png',
+        '72': 'resources/icons/app-icon-ipad.png',
+        '114': 'resources/icons/app-icon-iphone@2x.png',
+        '144': 'resources/icons/app-icon-ipad@2x.png'
     },
 
     isIconPrecomposed: true,

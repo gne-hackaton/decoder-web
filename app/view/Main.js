@@ -12,19 +12,11 @@ Ext.define("decoder.view.Main", {
               xtype:'homepanel'
             },
             {
-                title: 'Favorites',
-                iconCls: 'star',
-				html: [
-	            	" Favorites View "
-				].join("")
+				xtype:'favoritespanel'
             },
             {
-                title: 'Recents',
-                iconCls: 'time',
-				html: [
-	            	" Favorites View "
-				].join("")
-            },
+				xtype:'recentspanel'
+            }
         ]
     }
 });

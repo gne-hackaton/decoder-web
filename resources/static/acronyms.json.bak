@@ -1,0 +1,28 @@
+{
+  "results": [
+      {
+        "acronym":"NBA",
+        "dict": "Sports Dictionary",
+        "id": "some id 3",
+        "def": "National Basketball Association"
+      },
+	  {
+	    "acronym":"NHL",
+        "dict": "Sports Dictionary",
+        "id": "some id",
+        "def": "National Hockey League"
+      },
+      {
+        "acronym":"NHL",
+        "dict": "Urban Dictionary",
+        "id": "some other id",
+        "def": "Nice Hairy Lamb"
+      },
+      {
+        "acronym":"SDLC",
+		"dict":"Pharma Informatics",
+		"id":"SDLC Software Development LifeCycle",
+		"def":"Software Development LifeCycle"
+	}
+	]
+}

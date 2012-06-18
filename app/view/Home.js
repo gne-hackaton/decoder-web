@@ -11,14 +11,21 @@ Ext.define('decoder.view.Home',{
 		config:{
 		 	title: 'Home',
 			iconCls: 'home',
+			navigationBar: false,
+			navigationBar: {
+				cls:'roundrect',
+				docked:'top'
+			},
 			items: [
 				{
 					xtype:'toolbar',
-					docked: 'top',
+					id:'searchbar',
+					top: 0,
+					width:'100%',
 					items:[
 						{
 			          		xtype: 'searchfield',
-							id: 'searchField',
+							id: 'searchfield',
 			            	placeHolder: 'Search',
 							autoCapitalize: false,
 							autoCorrect: false,
@@ -29,13 +36,22 @@ Ext.define('decoder.view.Home',{
 				{
 					xtype: 'list',
 					id: 'results',
+					baseCls: 'ac-list',
 					title: 'DECODER RING',
 					store: 'Acronyms',
 					disableSelection: true,
-					grouped: false,
-					itemTpl: '<div class="def">{acronym} <span class="sub">{def}</span></div>',
+					//grouped: true,
+					itemTpl: 
+							'<div class="def">{name} <span class="sub">{def}</span></div>'+
+							'<div class="actionbar-list" style="display:none">'+
+							'<ul>'+
+							'<li class="comment"></li>'+
+							'<li id="favorite" class="star"></li>'+
+							'<li class="share"></li>'+
+							'<li class="flag"></li>'+
+							 '</div>',
 					onItemDisclosure: false,
 				}
 			]
 		}
-	});// Search List
+	});
