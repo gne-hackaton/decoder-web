@@ -9,7 +9,7 @@ Ext.application({
     ],
 
     views: ['Main','Home','Detail','Favorites','Recents'],
-    models:['Acronym','Term'],
+    models:['Acronym'],
 	stores: ['Acronyms','Favorites','Recents'],
 
     icon: {

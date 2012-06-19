@@ -8,14 +8,14 @@ Ext.define('decoder.store.Favorites',{
 		autoLoad: true,
 		autoSync: true,
 		model: 'decoder.model.Acronym',
-		sorters: 'acronym',
+		sorters: 'name',
 		grouper: {
     		groupFn: 
 				function(record) {
 					var acronym = record.get('name');
 					var letter = acronym.substring(0,1).toUpperCase();
       				return letter;
-      		},
+      		}
     	},
 		proxy: {
 			type:'localstorage',

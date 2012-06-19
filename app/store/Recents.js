@@ -7,15 +7,15 @@ Ext.define('decoder.store.Recents',{
 	config:{
 		autoLoad: true,
 		autoSync: true,
-		model: 'decoder.model.Term',
-		sorters: 'term',
+		model: 'decoder.model.Acronym',
+		sorters: 'acronym',
 		grouper: {
     		groupFn: 
 				function(record) {
-					var srch = record.get('term');
-					var letter = srch.substring(0,1).toUpperCase();
+					var acronym = record.get('name');
+					var letter = acronym.substring(0,1).toUpperCase();
       				return letter;
-      		},
+      		}
     	},
 		proxy: {
 			type:'localstorage',

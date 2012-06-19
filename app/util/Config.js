@@ -1,7 +1,7 @@
 Ext.define('decoder.util.Config', {
     singleton : true,
     config : {
-		env: 'poc',
+		env: 'usestatic',
 		usestatic: {
 			url: 'resources/static/A.json',
 		},

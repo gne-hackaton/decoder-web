@@ -8,7 +8,7 @@ Ext.define('decoder.view.Recents',{
 		],
 
 		config:{
-		 	title: 'Recent Searches',
+		 	title: 'Recents',
 			iconCls: 'time',
 			navigationBar: {
 				cls:'roundrect',
@@ -23,7 +23,7 @@ Ext.define('decoder.view.Recents',{
 					store: 'Recents',
 					disableSelection: true,
 					grouped: true,
-					itemTpl: '<div class="def">{term}</div>',
+					itemTpl: '<div class="def">{name} <span class="sub">{def}</span></div>',
 					onItemDisclosure: false,
 				}
 			]
