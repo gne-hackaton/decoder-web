@@ -10,7 +10,7 @@ Ext.define('decoder.view.Home',{
 
 		config:{
 		 	title: 'Home',
-			iconCls: 'home',
+			iconCls: 'Home',
 			navigationBar: false,
 			navigationBar: {
 				cls:'roundrect-top',

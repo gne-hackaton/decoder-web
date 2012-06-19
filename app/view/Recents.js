@@ -9,7 +9,7 @@ Ext.define('decoder.view.Recents',{
 
 		config:{
 		 	title: 'Recents',
-			iconCls: 'time',
+			iconCls: 'Clock',
 			navigationBar: {
 				cls:'roundrect',
 				docked:'top'

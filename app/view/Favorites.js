@@ -9,7 +9,7 @@ Ext.define('decoder.view.Favorites',{
 
 		config:{
 		 	title: 'Favorites',
-			iconCls: 'star',
+			iconCls: 'Star',
 			navigationBar: {
 				cls:'roundrect',
 				docked:'top'

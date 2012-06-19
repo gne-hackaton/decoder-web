@@ -30,7 +30,7 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
 	viewport: {
-		automaximize: true
+		autoMaximize: true
 	},
     launch: function() {
         // Destroy the #appLoadingIndicator element
