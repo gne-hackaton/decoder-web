@@ -47,15 +47,20 @@ Ext.define('decoder.controller.Main', {
 		}
 	},
 	loadResults: function(field) {
+		var env = decoder.util.Config.getEnv();
 		var fieldval = field.getValue();
-		console.log(fieldval);
-		//First, add the field's value to the recent searches store
+		console.log(env+','+fieldval);
+
+		/*Reimplement this on itemtap event listener
 		var rec = Ext.ModelManager.getModel('decoder.model.Term').create('Term');
 		rec.set('term',fieldval);
 		console.log(rec);
-		Ext.StoreMgr.get('Recents').add(rec);	
-		
-		var url = 'http://mobile-poc01.gene.com:8080/search/'+fieldval;
+		Ext.StoreMgr.get('Recents').add(rec);
+		*/	
+		var url = decoder.util.Config.getUsestatic().url;
+		if (env == 'poc') {
+			url = decoder.util.Config.getPoc.url + fieldval
+		}
 		var acronymstore = Ext.StoreMgr.get('Acronyms');
 		acronymstore.getProxy().setUrl(url);
 		console.log(url);

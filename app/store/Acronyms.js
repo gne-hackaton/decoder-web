@@ -5,22 +5,11 @@ Ext.define('decoder.store.Acronyms',{
 		'Ext.data.proxy.JsonP'
 	],
 	config:{
-		autoLoad: true,
+		autoLoad: false,
 		model: 'decoder.model.Acronym',
 		sorters: 'acronym',
-		/*
-		grouper: {
-    		groupFn: 
-				function(record) {
-					var acronym = record.get('name');
-					var letter = acronym.substring(0,1).toUpperCase();
-      				return letter;
-      		},
-    	},
-        */
 		proxy: {
 			type: 'ajax',
-			url: 'resources/static/A.json',
 			reader: {
 				type: 'json',
 				rootProperty:'result',

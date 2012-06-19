@@ -4,7 +4,8 @@ Ext.application({
     name: 'decoder',
 
     requires: [
-        'Ext.MessageBox'
+		'Ext.MessageBox',
+		'decoder.util.Config'
     ],
 
     views: ['Main','Home','Detail','Favorites','Recents'],
