@@ -48,7 +48,7 @@ Ext.define('decoder.controller.Main', {
 	searchBarDisplay: function(container) {
 		var searchbar = Ext.getCmp('searchbar');
 		var itemId = container.getActiveItem().getId();
-		if (itemId == "results") {
+		if (itemId == "home-list") {
 			searchbar.hide();
 		} else {
 			searchbar.show({

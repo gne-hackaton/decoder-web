@@ -13,7 +13,7 @@ Ext.define('decoder.view.Home',{
 			iconCls: 'home',
 			navigationBar: false,
 			navigationBar: {
-				cls:'roundrect',
+				cls:'roundrect-top',
 				docked:'top'
 			},
 			items: [
@@ -35,7 +35,7 @@ Ext.define('decoder.view.Home',{
 				},
 				{
 					xtype: 'list',
-					id: 'results',
+					id: 'home-list',
 					baseCls: 'ac-list',
 					title: 'DECODER RING',
 					store: 'Acronyms',

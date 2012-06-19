@@ -6,7 +6,9 @@ Ext.define("decoder.view.Main", {
     ],
     config: {
         tabBarPosition: 'bottom',
-
+		tabBar: {
+			cls: 'roundrect-bottom'
+		},
         items: [
             {
               xtype:'homepanel'
