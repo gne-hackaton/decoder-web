@@ -71,13 +71,13 @@ Ext.define('decoder.controller.Main', {
 		console.log(url);
 		acronymstore.load();
 	},
-	actionBarReveal: function(dataView, index, target, record) {
+	actionBarReveal: function(dataView, index, target, record, e, eOpts) {
 		var act = target.down('.actionbar-list');
 		var def = target.down('.def');
 		var display = act.getStyle('display');
 		if (display == 'none') {
 			act.show();
-			target.suspendEvents();
+			//target.up().suspendEvents();
 			def.hide();
 		} else {	
 			act.hide();

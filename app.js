@@ -2,13 +2,16 @@ Ext.application({
     controllers: ["Main"],
 
     name: 'decoder',
-
+	profiles: [
+		'Phone',
+		'Tablet'
+	],
     requires: [
 		'Ext.MessageBox',
 		'decoder.util.Config'
     ],
 
-    views: ['Main','Home','Detail','Favorites','Recents'],
+    views: ['Detail','Favorites','Recents'],
     models:['Acronym'],
 	stores: ['Acronyms','Favorites','Recents'],
 
@@ -30,8 +33,9 @@ Ext.application({
         '1496x2048': 'resources/startup/1496x2048.png'
     },
 	viewport: {
-		autoMaximize: true
+		autoMaximize: false
 	},
+	/*
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
@@ -39,7 +43,7 @@ Ext.application({
         // Initialize the main view
         Ext.Viewport.add(Ext.create('decoder.view.Main'));
     },
-
+	*/
     onUpdated: function() {
         Ext.Msg.confirm(
             "Application Update",
