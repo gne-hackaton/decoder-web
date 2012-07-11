@@ -11,7 +11,7 @@ Ext.application({
 		'decoder.util.Config'
     ],
 
-    views: ['Detail','Favorites','Recents'],
+    views: ['Finder','Detail','Favorites','Recents'],
     models:['Acronym'],
 	stores: ['Acronyms','Favorites','Recents'],
 

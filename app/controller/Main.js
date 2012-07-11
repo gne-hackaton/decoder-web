@@ -5,17 +5,20 @@ Ext.define('decoder.controller.Main', {
 	],
     config: {
         refs: {
-			list: 'homepanel'
+        	view: 'homepanel',
+        	detail: 'detailpanel',
+        	finder: 'finderpanel',
+			list: 'finderpanel list'
         },
         control: {
-			'homepanel': {
+			'finderpanel': {
 				activeitemchange: 'searchBarDisplay'
 			},
-            'homepanel list': {
+            'finderpanel list': {
 				itemtap: 'showDetail',
 				itemswipe: 'actionBarReveal'
 			},
-			'homepanel #searchfield': {
+			'finderpanel #searchfield': {
 				action: 'loadResults'
 			},
 			'detailpanel button': {
@@ -23,11 +26,11 @@ Ext.define('decoder.controller.Main', {
 			},
 			'detailpanel': {
 				activate: 'pushData'
-			},
+			}
 		}
     },
     showDetail: function(dataview,index,target,record) {
-		//Add to recents when tapped
+		//Add to recents when tapped; do this regardless of type
 		var name = record.data.name;
 		var def = record.data.def;
 		var rec = Ext.ModelManager.getModel('decoder.model.Acronym').create('Acronym');
@@ -35,15 +38,24 @@ Ext.define('decoder.controller.Main', {
 			name:name,
 			def:def
 		});
-		console.log(rec);
 		Ext.StoreMgr.get('Recents').add(rec);
 
 		var title = name + ' Decoded';
-		this.getList().push({
-      		xtype: 'detailpanel',
-            title: title,
-        	data: record.getData()
-      	});
+		var parentid = this.getFinder().up().getId();
+		
+		if (parentid == 'homepanel') {
+			this.getView().push({
+      			xtype: 'detailpanel',
+      			title: title,
+      			data: record.getData()
+      		});
+      	} else {
+      	    var detail = this.getDetail();
+	    	var pans = detail.query('panel');
+	    	Ext.each(pans, function(item, index, thearray) {
+				item.setData(record.getData());
+			});
+      	}
 	},
 	searchBarDisplay: function(container) {
 		var searchbar = Ext.getCmp('searchbar');
@@ -67,6 +79,7 @@ Ext.define('decoder.controller.Main', {
 			url = decoder.util.Config.getPoc().url + fieldval
 		}
 		var acronymstore = Ext.StoreMgr.get('Acronyms');
+		console.log(this.getList().getStore());
 		acronymstore.getProxy().setUrl(url);
 		console.log(url);
 		acronymstore.load();
@@ -89,6 +102,7 @@ Ext.define('decoder.controller.Main', {
 	    Ext.StoreMgr.get('Favorites').add(record);	
 	},
 	pushData: function(container) { 
+		console.log('Activate Detail Panel');
 		var acronym = container.getData();
 		var panels = container.query('panel');
 		Ext.each(panels, function(item, index, thearray) {
@@ -97,6 +111,19 @@ Ext.define('decoder.controller.Main', {
     },
     //called when the Application is launched, remove if not needed
     launch: function(app) {
-        
+    	var pans = this.getDetail().query('panel');
+    	//temporary hack to load data from static while testing ipad profile
+        var url = decoder.util.Config.getUsestatic().url;
+        var acronymstore = Ext.StoreMgr.get('Acronyms');
+		acronymstore.getProxy().setUrl(url);
+		console.log(url);
+		acronymstore.load({
+			callback : function() {
+				var record = acronymstore.getAt(0).getData();
+				Ext.each(pans, function(item, index, thearray) {
+					item.setData(record);
+				});
+			}
+		});
     }
 });

@@ -5,8 +5,18 @@ Ext.define('decoder.profile.Phone',{
 		views: ['Main','Home']
 	},
 	isActive: function() {
-		console.log('is Phone:'+Ext.os.is.Phone);
-		return Ext.os.is.Phone;
+		var isPhone = Ext.os.is.Phone;
+		
+		var deviceType = Ext.os.deviceType;
+		
+		console.log(deviceType);
+
+		if (deviceType == 'Desktop') {
+			isPhone = false;
+		}
+		
+		//return Ext.os.is.Phone;
+		return isPhone;
 	},
 	launch: function() {
 		//Ext.create('Mail.view.phone.Main');

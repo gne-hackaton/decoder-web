@@ -1,12 +1,7 @@
 Ext.define('decoder.view.tablet.Home',{
-	extend: 'Ext.Panel',
+	extend: 'Ext.Container',
 	xtype: 'hometablet',
 	id: 'hometablet',
-	
-		requires: [
-			'Ext.dataview.List',
-			'Ext.field.Search'
-		],
 
 		config:{
 		 	title: 'Home',
@@ -14,28 +9,34 @@ Ext.define('decoder.view.tablet.Home',{
 			layout: 'hbox',
 			items: [
 				{
-					xtype: 'list',
-					id: 'home-list',
-					baseCls: 'ac-list',
-					title: 'DECODER RING',
-					store: 'Acronyms',
-					disableSelection: true,
-					//grouped: true,
-					itemTpl: 
-							'<div class="def">{name} <span class="sub">{def}</span></div>'+
-							'<div class="actionbar-list" style="display:none">'+
-							'<ul>'+
-							'<li class="comment"></li>'+
-							'<li id="favorite" class="star"></li>'+
-							'<li class="share"></li>'+
-							'<li class="flag"></li>'+
-							 '</div>',
-					onItemDisclosure: false,
-					width: 250,
-					docked: 'left'
+					xtype:'panel',
+					width:300,
+					flex: 1,
+					layout: 'fit',
+					items: [
+						{
+							xtype:'titlebar',
+							title:'Acronyms',
+							docked:'top'	
+						},
+						{
+							xtype:'finderpanel'
+						}
+					]
 				},
 				{
-					xtype: 'detailpanel'
+					xtype: 'panel',
+					flex:2,
+					items: [
+						{
+							xtype:'titlebar',
+							title:'DECODER RING',
+							docked:'top'
+						},
+						{
+							xtype:'detailpanel'
+						}
+					]
 				}
 			]
 		},

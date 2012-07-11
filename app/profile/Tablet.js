@@ -5,8 +5,16 @@ Ext.define('decoder.profile.Tablet',{
 		views: ['Main','Home']
 	},
 	isActive: function() {
-		console.log('is Tablet:'+Ext.os.is.Tablet);
+		console.log('Ext.os.is.Tablet:'+Ext.os.is.Tablet);
+		var isTablet = Ext.os.is.iPad;
+		var deviceType = Ext.os.deviceType;
 		
+		console.log(deviceType);
+		
+		if (deviceType == 'Desktop') {
+			isTablet = true;
+		}
+		/*
 		var browserStr = "Browser CodeName: " + navigator.appCodeName;
 		browserStr+= "  -Browser Name: " + navigator.appName;
 		browserStr+= "  -Browser Version: " + navigator.appVersion;
@@ -15,8 +23,10 @@ Ext.define('decoder.profile.Tablet',{
 		browserStr+= "  -User-agent: " + navigator.userAgent;
 		console.log('device type:'+Ext.os.deviceType);
 		console.log(browserStr);
+		*/
 		
-		return Ext.os.is.iPad;
+		//return Ext.os.is.iPad;
+		return isTablet;
 	},
 	launch: function() {
 		// Destroy the #appLoadingIndicator element
