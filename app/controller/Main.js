@@ -15,13 +15,13 @@ Ext.define('decoder.controller.Main', {
 				activeitemchange: 'searchBarDisplay'
 			},
             'finderpanel list': {
-				itemtap: 'showDetail',
+				//itemtap: 'showDetail',
 				itemswipe: 'actionBarReveal'
 			},
 			'finderpanel #searchfield': {
 				action: 'loadResults'
 			},
-			'detailpanel button': {
+			'detailpanel #add': {
 				tap:'addToFavorites'
 			},
 			'detailpanel': {
@@ -41,22 +41,13 @@ Ext.define('decoder.controller.Main', {
 		Ext.StoreMgr.get('Recents').add(rec);
 
 		var title = name + ' Decoded';
-		var parentid = this.getFinder().up().getId();
-		
-		if (parentid == 'homepanel') {
+
 			this.getView().push({
       			xtype: 'detailpanel',
       			title: title,
       			data: record.getData()
       		});
-      	} else {
-      	    var detail = this.getDetail();
-	    	var pans = detail.query('panel');
-	    	Ext.each(pans, function(item, index, thearray) {
-				item.setData(record.getData());
-			});
-      	}
-	},
+   	},
 	searchBarDisplay: function(container) {
 		var searchbar = Ext.getCmp('searchbar');
 		var itemId = container.getActiveItem().getId();

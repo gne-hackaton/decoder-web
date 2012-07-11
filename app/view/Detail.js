@@ -12,7 +12,7 @@ Ext.define('decoder.view.Detail',{
 				xtype:'panel',
 				flex: 1,
 				id: 'title',
-				tpl: '<h2>{name}</h2>',
+				tpl: '<h2 style="text-align:center">{name}</h2>',
 				height: 32
 			},
 			{
@@ -27,7 +27,8 @@ Ext.define('decoder.view.Detail',{
 				xtype:'panel',
 				id: 'controls',
 				flex:3,
-				margin: '20 0 0 10',
+				margin: '20 auto 10',
+				width:220,
 				items: [
 					{
 						xtype:'button',

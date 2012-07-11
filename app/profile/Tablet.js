@@ -2,7 +2,8 @@ Ext.define('decoder.profile.Tablet',{
 	extend: 'Ext.app.Profile',
 	config: {
 		name: 'Tablet',
-		views: ['Main','Home']
+		views: ['Main','Home'],
+		controllers: ['Main'],
 	},
 	isActive: function() {
 		console.log('Ext.os.is.Tablet:'+Ext.os.is.Tablet);

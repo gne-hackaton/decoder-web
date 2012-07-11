@@ -17,7 +17,8 @@ Ext.define('decoder.view.phone.Home',{
 			},
 			items: [
 				{
-					xtype:'finderpanel'
+					xtype:'finderpanel',
+					title:'DECODER RING'
 				}
 			]
 		}
